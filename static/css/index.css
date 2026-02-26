@@ -1,32 +1,64 @@
-.carousel{
-    margin: 100px auto;
-    width: 90%;
-    border: 5px red solid;
-    display: flex;
-    overflow-x: auto;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.carousel::-webkit-scrollbar {
-    display: none;
-}
-.group{
+
+body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 1em;
-    animation: spin 7s infinite linear;
-    padding-right: 1em;
+    align-items: center;
+    height: 100vh;
+    gap: 2vw; /* space between carousels */
+    font-family: sans-serif;
 }
-.card{
-    flex: 0 0 5em;
-    height: 5em;
-    padding: 1em;
+
+.carousel {
+    width: 20vw;       /* relative to screen width */
+    height: 100vh;      /* relative to viewport height */
+    border: 3px solid red;
+    overflow: hidden;  /* hide duplicates outside view */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    animation: spin 8s linear infinite;
+}
+
+.card {
+    flex: 0 0 auto;       /* prevent shrinking */
+    width: 100%;           /* relative to carousel */
+    aspect-ratio: 1 / 1;
     background: cornflowerblue;
-    font-size: 3rem;
-    border-radius: .2em;
+    font-size: 2rem;
+    border-radius: 0.2em;
     text-align: center;
-    align-content: center;
+    line-height: 2;
+    margin-bottom: 0.5em
 }
+
+.slow {
+    animation-duration: 12s;
+}
+
+/* vertical scroll animation */
 @keyframes spin {
-    from {translate: 0;}
-    to {translate: -100%;}
+    from {transform: translateY(0); }
+    to {transform: translateY(-50%); } 
+}
+
+/* responsive tweak for small screens */
+@media (max-width: 400px) {
+    .carousel {
+        width: 40vw;
+        height: 100vh;
+    }
+
+    .card {
+        font-size: 1.5rem;
+    }
 }
