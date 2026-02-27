@@ -56,14 +56,24 @@ body {
     to {transform: translateY(-50%); } 
 }
 
-/* responsive tweak for small screens */
-@media (max-width: 400px) {
-    .carousel {
-        width: 40vw;
-        height: 100vh;
-    }
 
-    .card {
-        font-size: 1.5rem;
-    }
+/* Small laptop / tablet */
+@media (max-width: 900px) {
+  .carousel {
+    width: 25vw;
+  }
+}
+
+/* Small phones */
+@media (max-width: 600px) {
+  .carousel {
+    width: 35vw;
+  }
+}
+
+/* Tiny phones */
+@media (max-width: 400px) {
+  .carousel {
+    width: 40vw;
+  }
 }
