@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.hidden-audio {
+    display: none;
+}
+
 body {
     display: flex;
     justify-content: center;

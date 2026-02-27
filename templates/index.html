@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.jpg') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O&M Memory Bank</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
+    <audio autoplay loop muted class="hidden-audio">
+        <source src="{{ url_for('static', filename='audio/jennydontbehasty-lofi1.mp3') }}" type="audio/mpeg">
+    </audio>
     <div class="carousel">
         <div class="group">
             <div class="photocard"><img src="{{ url_for('static', filename='images/4me4me.jpg') }}" alt="4me4me"></div>
@@ -42,5 +45,18 @@
             <div class="photocard"><img src="{{ url_for('static', filename='images/hill.jpg') }}" alt="hill"></div> 
         </div>
     </div>
+
+
+
+    <script>
+        document.body.addEventListener('click', function handler() {
+            const audio = document.querySelector('.hidden-audio');
+            audio.muted = false;
+            audio.play().catch(err => {
+            console.log("Playback failed:", err);
+            });
+            document.body.removeEventListener('click', handler);
+        });
+    </script>
 </body>
 </html>
